@@ -2,17 +2,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kustomize-test
+  name: kustomize-test-prod
   namespace: argocd
 spec:
-  project: default
+  project: kili-test
   source:
     repoURL: https://github.com/discostur/argo-test.git
     targetRevision: HEAD
-    path: vendor/deployment/kustomize/overlays/dev
+    path: kustomize/overlays/prod
   destination:
     server: https://kubernetes.default.svc
-    namespace: dev
+    namespace: prod
   syncPolicy:
     automated:
       prune: true
