@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-ingress-kili-test2
+  name: nginx-ingress-kili-test3
   namespace: argocd
 spec:
   project: kili-test
@@ -10,7 +10,6 @@ spec:
     repoURL: https://kubernetes.github.io/ingress-nginx
     targetRevision: 4.9.1
     helm:
-      releaseName: nginx-ingress-kili-test2
       values: |
         controller:
             ingressClassResource:
