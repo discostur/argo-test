@@ -12,6 +12,10 @@ spec:
     helm:
       values: |
         controller:
+        controller:
+            ingressClassResource:
+              name: nginx2
+              enabled: true
           service:
             type: NodePort
           config:
