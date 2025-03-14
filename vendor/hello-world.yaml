@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello-world
+  namespace: argocd
+spec:
+  project: kili-test
+  source:
+    chart: hello-world
+    repoURL: https://argoproj.github.io/argo-helm
+    targetRevision: 0.1.0
+    helm:
+      values: |
+        service:
+          type: ClusterIP
+        ingress:
+          enabled: true
+          hostname: hello.local
+          path: /
+          pathType: Prefix
+          tls: false
+          annotations:
+            kubernetes.io/ingress.class: nginx
+            nginx.ingress.kubernetes.io/ssl-redirect: "false"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: hello-world
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true 
