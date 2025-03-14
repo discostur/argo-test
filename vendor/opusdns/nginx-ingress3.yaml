@@ -12,8 +12,9 @@ spec:
     helm:
       values: |
         controller:
-            ingressClassResource:
-              enabled: false
+          ingressClassResource:
+            enabled: true
+            name: nginx3
           service:
             type: NodePort
           config:
