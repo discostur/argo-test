@@ -13,6 +13,8 @@ spec:
       releaseName: nginx-ingress-kili-test2
       values: |
         controller:
+            ingressClassResource:
+              enabled: false
           service:
             type: NodePort
           config:
