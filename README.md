@@ -1,2 +1,3 @@
-# argo-test
-ArgoCD Test
+# GitOps Test
+- ArgoCD Test
+- FluxCD Test
