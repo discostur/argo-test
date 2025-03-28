@@ -2,17 +2,17 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: nginx-ingress
+  name: ingress-nginx
   namespace: ingress-nginx
 spec:
   interval: 10m
   chart:
     spec:
-      chart: nginx-ingress
-      version: "1.9.1"  # Setze die gewünschte Version
+      chart: ingress-nginx
+      version: "4.6.0"  # Latest stable version as of now
       sourceRef:
-        kind: GitRepository
-        name: flux-repo
+        kind: HelmRepository
+        name: ingress-nginx
         namespace: flux-system
       interval: 5m
   install:
@@ -22,4 +22,4 @@ spec:
   upgrade:
     remediation:
       retries: 3
-  suspend: true  # Verhindert automatische Deployments
+  suspend: false  # Set to false to enable deployment
