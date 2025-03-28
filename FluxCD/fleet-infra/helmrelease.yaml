@@ -22,5 +22,5 @@ spec:
     remediation:
       retries: 3
   rollback:
-    enable: true
+    enabled: true
   suspend: true  # Verhindert automatische Deployments
