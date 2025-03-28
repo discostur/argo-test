@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: ingress-nginx
-      version: "4.7.0"  # Latest stable version as of now
+      version: "4.5.0"  # Latest stable version as of now
       sourceRef:
         kind: HelmRepository
         name: ingress-nginx
@@ -22,4 +22,4 @@ spec:
   upgrade:
     remediation:
       retries: 3
-  suspend: false  # Set to false to enable deployment
+  suspend: true
