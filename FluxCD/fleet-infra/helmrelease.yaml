@@ -1,5 +1,5 @@
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: nginx-ingress
@@ -21,6 +21,4 @@ spec:
   upgrade:
     remediation:
       retries: 3
-  rollback:
-    enabled: true
   suspend: true  # Verhindert automatische Deployments
