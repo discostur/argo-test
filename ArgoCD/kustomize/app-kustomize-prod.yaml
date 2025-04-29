@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/discostur/argo-test.git
     targetRevision: HEAD
-    path: kustomize/overlays/prod
+    path: ArgoCD/kustomize/overlays/prod
   destination:
     server: https://kubernetes.default.svc
     namespace: prod
