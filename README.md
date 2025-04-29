@@ -2,4 +2,4 @@
 - ArgoCD Test
 - FluxCD Test
 
-- version: 2
+- version: 3
