@@ -14,6 +14,7 @@ spec:
       {{- with .Values.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
+        releaseTime: "{{ date "20060102150405" .now }}"
       {{- end }}
       labels:
         {{- include "example-chart.selectorLabels" . | nindent 8 }}
