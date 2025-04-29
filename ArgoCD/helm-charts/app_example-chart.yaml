@@ -21,6 +21,6 @@ spec:
       targetRevision: main
       ref: values
   syncPolicy:
-    automated: {}
+    # automated: {}
     syncOptions:
       - CreateNamespace=true 
