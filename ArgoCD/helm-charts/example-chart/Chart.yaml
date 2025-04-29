@@ -1,0 +1,7 @@
+apiVersion: v2
+name: example-chart
+description: A Helm chart for Kubernetes deployment
+type: application
+home: https://github.com/discostur/argo-test
+version: 0.1.0
+appVersion: "0.1.0"

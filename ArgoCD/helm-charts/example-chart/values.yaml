@@ -1,0 +1,19 @@
+# Default values for root-zone-file-ingestion
+
+replicaCount: 1
+
+image:
+  repository: alpine
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
