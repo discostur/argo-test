@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       annotations:
-        releaseIdentifier: {{ .Values.releaseIdentifier }}
+        releaseIdentifier: "{{ .Values.releaseIdentifier }}"
       labels:
         {{- include "example-chart.selectorLabels" . | nindent 8 }}
     spec:
