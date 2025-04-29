@@ -15,5 +15,3 @@ serviceAccount:
   create: true
   annotations: {}
   name: ""
-
-podAnnotations: {}
