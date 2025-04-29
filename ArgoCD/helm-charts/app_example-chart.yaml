@@ -9,7 +9,7 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: example-chart
-  source:
+  sources:
     - repoURL: https://github.com/discostur/argo-test.git
       path: ArgoCD/helm-charts/example-chart
       targetRevision: main
