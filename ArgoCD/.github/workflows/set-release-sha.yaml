@@ -1,0 +1,39 @@
+name: Inject Git SHA into Helm Values
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-release-identifier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Get short commit SHA
+        id: vars
+        run: echo "sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Set releaseIdentifier in values.yaml
+        run: |
+          yq eval '.releaseIdentifier = "${{ steps.vars.outputs.sha }}"' -i ArgoCD/helm-charts/example-chart/values.yaml
+
+      - name: Check if file changed
+        id: git-diff
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit & push changes
+        if: steps.git-diff.outputs.changed == 'true'
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git commit -am "chore: set releaseIdentifier to ${{ steps.vars.outputs.sha }}"
+          git push

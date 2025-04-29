@@ -2,6 +2,8 @@
 
 replicaCount: 1
 
+releaseIdentifier: 123
+
 image:
   repository: nginx
   tag: "latest"
