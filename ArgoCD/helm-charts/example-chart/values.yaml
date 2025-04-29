@@ -1,4 +1,4 @@
-# Default values for root-zone-file-ingestion
+# Default values for example-chart
 
 replicaCount: 1
 

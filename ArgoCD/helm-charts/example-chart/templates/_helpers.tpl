@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "root-zone-file-ingestion.name" -}}
+{{- define "example-chart.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "root-zone-file-ingestion.fullname" -}}
+{{- define "example-chart.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "root-zone-file-ingestion.chart" -}}
+{{- define "example-chart.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "root-zone-file-ingestion.labels" -}}
-helm.sh/chart: {{ include "root-zone-file-ingestion.chart" . }}
-{{ include "root-zone-file-ingestion.selectorLabels" . }}
+{{- define "example-chart.labels" -}}
+helm.sh/chart: {{ include "example-chart.chart" . }}
+{{ include "example-chart.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "root-zone-file-ingestion.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "root-zone-file-ingestion.name" . }}
+{{- define "example-chart.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "example-chart.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "root-zone-file-ingestion.serviceAccountName" -}}
+{{- define "example-chart.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "root-zone-file-ingestion.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "example-chart.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
